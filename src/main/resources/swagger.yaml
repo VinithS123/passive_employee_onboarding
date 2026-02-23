@@ -1,0 +1,61 @@
+openapi: 3.0.0
+info:
+  title: Employee onboarding for VinithTech
+  version: 1.0.0
+  description: api for employees onboarding
+
+paths:
+  /employees:
+    post:
+      tags:
+        - employee
+      summary: Add employee details
+      operationId: addEmployee
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/employeeDto'
+
+      responses:
+        '201':
+          description: employee created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/employeeDto'
+
+    get:
+      tags:
+        - employee
+      summary: Get all employee details
+      operationId: getAllEmployee
+      responses:
+        '200':
+          description: list of employees
+          content:
+            application/json:
+              schema:
+                type:  array
+                items:
+                  $ref: '#/components/schemas/employeeDto'
+
+components:
+  schemas:
+    employeeDto:
+      properties:
+        customerId:
+          type: string
+        customerName:
+          type: string
+        role:
+          type: string
+        department:
+          type: string
+        salary:
+          type: number
+          format: float
+
+
+
+
