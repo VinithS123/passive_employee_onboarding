@@ -26,6 +26,7 @@ public class EmployeeController implements EmployeesApi {
     }
 
     @Override
+    //Returns employee
     public ResponseEntity<List<EmployeeDto>> getAllEmployee() {
         return ResponseEntity.ok(employeeService.getAllEmployee());
     }
